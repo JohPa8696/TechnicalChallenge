@@ -1,0 +1,7 @@
+"DbUser" = "john"
+"DbPassword" = "Password1234"
+"DbName" = "app"
+"DbPort" = "5432"
+"DbHost" = "gtd-server-postgres.postgres.database.azure.com"
+"ListenHost" = "localhost"
+"ListenPort" = "3000"
