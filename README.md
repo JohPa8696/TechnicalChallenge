@@ -1,8 +1,8 @@
-# Servian Technical Challenge
+# Getting Things Done App
 ## Description:
 This is a single page application designed to be run inside a container or on a vm (IaaS) with a postgres database to store data. 
 
-# 1. Architecture
+# 2. Architecture
 - Architecture
 ![alt text](GTD-Architecture-no-vnet.png "Wish had time to build this")
 
@@ -27,7 +27,10 @@ This is a single page application designed to be run inside a container or on a 
 - Deployment: 
     - Navigate to Infrastructure folder
     - Execute terraform:
+
             ```
             terraform init
+            ```
+            ```
             terraform apply
             ```
