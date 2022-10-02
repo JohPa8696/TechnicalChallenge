@@ -152,7 +152,6 @@ resource "null_resource" "gtd_seed_data" {
     command     = data.template_file.gtd_seed_data_for_db.rendered
     interpreter = ["PowerShell", "-Command"]
   }
-
   depends_on = [
     azurerm_postgresql_flexible_server_firewall_rule.postgres_gtd_server_fw_rule_app_services_ips
   ]
