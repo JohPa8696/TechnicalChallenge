@@ -1,6 +1,6 @@
 locals {
   keyvault = {
-    name = "${local.resource_name_prefix}-kv-2"
+    name = "${local.resource_name_prefix}-kv-1"
     sku  = "standard"
   }
 
@@ -19,7 +19,7 @@ resource "azurerm_key_vault" "gtd_keyvault" {
   sku_name            = local.keyvault.sku
 }
 
-resource "azurerm_key_vault_access_policy" "principal" {
+resource "azurerm_key_vault_access_policy" "current_service_principal" {
   key_vault_id = azurerm_key_vault.gtd_keyvault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = data.azurerm_client_config.current.object_id
@@ -51,7 +51,7 @@ resource "azurerm_key_vault_secret" "gtd_db_user" {
   key_vault_id = azurerm_key_vault.gtd_keyvault.id
 
   depends_on = [
-    azurerm_key_vault_access_policy.principal
+    azurerm_key_vault_access_policy.current_service_principal
   ]
 }
 
@@ -62,6 +62,6 @@ resource "azurerm_key_vault_secret" "gtd_db_user_password" {
   key_vault_id = azurerm_key_vault.gtd_keyvault.id
 
   depends_on = [
-    azurerm_key_vault_access_policy.principal
+    azurerm_key_vault_access_policy.current_service_principal
   ]
 }

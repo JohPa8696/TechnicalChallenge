@@ -132,7 +132,6 @@ resource "azurerm_linux_web_app" "gtp_app_service_stamp_2" {
   }
 }
 
-
 data "template_file" "gtd_seed_data_for_db" {
   template = file("./scripts/seed_data.ps1.tpl")
   vars = {
@@ -152,7 +151,8 @@ resource "null_resource" "gtd_seed_data" {
     command     = data.template_file.gtd_seed_data_for_db.rendered
     interpreter = ["PowerShell", "-Command"]
   }
+
   depends_on = [
-    azurerm_postgresql_flexible_server_firewall_rule.postgres_gtd_server_fw_rule_app_services_ips
+    null_resource.gtd_adding_firewall_rule_for_postgres
   ]
 }
