@@ -1,7 +1,0 @@
-"DbUser" = "servian"
-"DbPassword" = "#5Rbl5Qu]q?)Crmb"
-"DbName" = "app"
-"DbPort" = "5432"
-"DbHost" = "gtd-app-db.postgres.database.azure.com"
-"ListenHost" = "localhost"
-"ListenPort" = "3000"
