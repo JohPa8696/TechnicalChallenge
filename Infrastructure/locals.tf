@@ -1,13 +1,14 @@
 locals {
-    
-  gtd_settings = {
-    VTT_LISTENHOST = "0.0.0.0"
-    VTT_LISTENPORT = 80
-    VTT_DBHOST     = "DBHOST"
-    VTT_DBPORT     = ""
-    VTT_DBNAME     = ""
-    VTT_DBUSER     = ""
-    VTT_PASSWORD   = ""
+  resource_name_prefix = "gtd-app"
+  resource_group_name  = "rg-${local.resource_name_prefix}"
+
+  resource_group_tags = {
+    environment = "dev"
+    cost_center = "dev"
   }
 
+  locations = {
+    primary   = "Central US"
+    secondary = "East US"
+  }
 }
