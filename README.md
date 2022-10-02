@@ -4,10 +4,10 @@ This is a single page application designed to be run inside a container or on a 
 
 # 1. Architecture
 - Architecture
-![alt text](GTD-Improve-Architecture "Wish had time to build this")
+![alt text](GTD-Architecture-no-vnet.png "Wish had time to build this")
 
 - Architecture with VNET
-![alt text](GTD-Improve-Architecture "Wish had time to build this")
+![alt text](GTD-Improve-Architecture.png "Wish had time to build this")
 
 
 
@@ -19,6 +19,15 @@ This is a single page application designed to be run inside a container or on a 
         - powershell
     - Have a contributor acess to an Azure account and subscription 
 
-    - Terraform uses a Service Principal credentials to authenticate to your Azure subscription. To create a App Service Principal with a contributor privileges, follow the microsoft document [Create App service principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
+    - Azure AD App Service Principal: 
+        - Terraform uses a Service Principal credentials to authenticate to your Azure subscription. 
+        - To create a App Service Principal with a contributor privileges, follow the microsoft document [Create App service principal](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal)
+        - Use existing or create a new application secret. *Please take notes of the those secrets and use when running terraform apply*
 
-    - Create 
+- Deployment: 
+    - Navigate to Infrastructure folder
+    - Execute terraform:
+            ```
+            terraform init
+            terraform apply
+            ```
