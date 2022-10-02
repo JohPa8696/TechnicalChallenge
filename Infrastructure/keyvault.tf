@@ -1,12 +1,11 @@
 locals {
   keyvault = {
-    name = "${local.resource_name_prefix}-kv-1"
+    name = "${local.resource_name_prefix}-kv-2"
     sku  = "standard"
   }
 
   secrets = {
     database_user_secret          = "${local.resource_name_prefix}-db-user"
-    database_user_value           = "servian"
     database_user_password_secret = "${local.resource_name_prefix}-db-user-password"
   }
 }
@@ -29,7 +28,8 @@ resource "azurerm_key_vault_access_policy" "principal" {
     "Get",
     "List",
     "Set",
-    "Delete"
+    "Delete",
+    "Purge"
   ]
 }
 
@@ -46,7 +46,7 @@ resource "azurerm_key_vault_access_policy" "gtd_app_service_kv_access" {
 
 resource "azurerm_key_vault_secret" "gtd_db_user" {
   name  = local.secrets.database_user_secret
-  value = local.secrets.database_user_value
+  value = local.database.user
 
   key_vault_id = azurerm_key_vault.gtd_keyvault.id
 
