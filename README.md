@@ -35,6 +35,5 @@ This is a single page application designed to be run inside a container or on a 
 
             ```
             terraform init
-
             terraform apply
             ```
